@@ -27,11 +27,6 @@ lein run image email@example.com
 lein run profile email@example.com
 ```
 
-## Acknowledgements
-
-* The [Automattic](https://automattic.com/) team for running and supporting Gravatar's free service.
-* [Rich Hickey](https://twitter.com/richhickey) and the [Clojure team](https://github.com/orgs/clojure/people) and [contributors](https://github.com/clojure/clojure/graphs/contributors) for [Clojure](https://www.clojure.org/), the modern, dynamic, and functional dialect of the [Lisp](https://en.wikipedia.org/wiki/Lisp_(programming_language)) programming language on the Java platform.
-
 ## Author
 
 [brackendev](https://www.github.com/brackendev)

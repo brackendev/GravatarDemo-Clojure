@@ -13,7 +13,7 @@ GravatarDemo-Clojure
 ## Installation
 
 1. Install and setup [Clojure](https://www.clojure.org/) and [Leiningen](https://leiningen.org).
-2. Download this project.
+2. Open this project in the IDE of your choice.
 
 ## Example Usage
 

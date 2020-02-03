@@ -12,12 +12,15 @@ GravatarDemo-Clojure
 
 ## Installation
 
-1. Install and setup [Clojure](https://www.clojure.org/) and [Leiningen](https://leiningen.org).
-2. Open this project in the IDE of your choice.
+* Install and setup [Clojure](https://www.clojure.org/) and [Leiningen](https://leiningen.org).
 
 ## Example Usage
 
-In a shell, in the project directory, execute:
+In a shell (in the project directory) execute:
+
+```bash
+lein test
+```
 
 ```bash
 lein run image email@example.com
@@ -25,6 +28,24 @@ lein run image email@example.com
 
 ```bash
 lein run profile email@example.com
+```
+
+***or***
+
+To use the REPL, in a shell (in the project directory) execute:
+
+```bash
+lein repl
+```
+
+Then:
+
+```clojure
+(profile-for-email "email@example.com")
+```
+
+```clojure
+(image-for-email "email@example.com")
 ```
 
 ## Author
@@ -39,7 +60,7 @@ GravatarDemo-Clojure is released under the MIT license. See the LICENSE file for
 
 ## Useful Links
 
-* [Clojure Google Group](https://groups.google.com/forum/#!forum/clojure)
 * [Clojure tutorial - boot, basic functions and how to do REST requests](https://joaoptrindade.com/clojure-tutorial-part-1-http-requests)
+* [ClojureVerse](https://clojureverse.org/)
 * [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)
 * [clojure.org](https://www.clojure.org/)

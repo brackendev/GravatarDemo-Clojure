@@ -1,11 +1,10 @@
 (ns gravatar.core
-  (:require
-    [clojure.data.json :as json-strict]
-    [org.httpkit.client :as http]
-    [digest]
-    [clojure.string :as str]
-    [clojure.java.io :as io])
-  (:use clojure.pprint))
+  (:require [clojure.data.json :as json-strict]
+            [org.httpkit.client :as http]
+            [digest]
+            [clojure.string :as str]
+            [clojure.java.io :as io]
+            [clojure.pprint :as pp]))
 
 (defn image-url
   [email]
@@ -15,32 +14,28 @@
   [email]
   (str "http://www.gravatar.com/" (digest/md5 email) ".json"))
 
-(defn- save-image [body fileName]
-  (io/copy body (java.io.File. fileName)))
-
 (defn file-extension [string]
-  (cond
-    (= "image/jpeg" string) ".jpg"
-    (= "image/png" string) ".png"
-    :default ""))
+  (cond (= "image/jpeg" string) ".jpg"
+        (= "image/png" string) ".png"
+        :else ""))
 
-;; Download the image for the email address
 (defn image-for-email
+  "Download the Gravatar image for the email address"
   [email]
-  (let [{:keys [headers body]} @(http/get (image-url email) {:as :stream})]
-    (let [contentType (get headers :content-type)
-          emailHash (digest/md5 email)
-          fileExtension (file-extension contentType)
-          fileName (str emailHash fileExtension)]
-      (save-image body fileName))))
+  (let [{:keys [headers body]} @(http/get (image-url email) {:as :stream})
+        content-type (get headers :content-type)
+        email-hash (digest/md5 email)
+        file-extension (file-extension content-type)
+        file-name (str email-hash file-extension)]
+    (io/copy body (java.io.File. file-name))))
 
-;; Retrieve the profile for the email address
 (defn profile-for-email
+  "Retrieve the Gravatar profile for the email address."
   [email]
-  (let [{:keys [body]} @(http/get (profile-url email))]
-    (def entry (get (json-strict/read-str body) "entry"))
+  (let [{:keys [body]} @(http/get (profile-url email))
+        entry (get (json-strict/read-str body) "entry")]
     (get entry 0)))
 
 (defn -main [& argv]
-  (if (= (first argv) "image") (do (image-for-email (second argv))))
-  (if (= (first argv) "profile") (do (pprint (profile-for-email (second argv))))))
+  (cond (= (first argv) "image") (image-for-email (second argv))
+        (= (first argv) "profile") (pp/pprint (profile-for-email (second argv)))))

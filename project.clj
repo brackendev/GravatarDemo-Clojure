@@ -8,4 +8,4 @@
                  [http-kit "2.3.0"]
                  [org.clojure/data.json "0.2.6"]
                  [digest "1.4.9"]]
-  :repl-options {:init-ns gravatarsdk.core})
+  :repl-options {:init-ns gravatar.core})

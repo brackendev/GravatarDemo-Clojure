@@ -12,7 +12,8 @@ GravatarDemo-Clojure
 
 ## Installation
 
-* Install and setup [Clojure](https://www.clojure.org/) and [Leiningen](https://leiningen.org).
+1. Download this project.
+2. Install and setup [Clojure](https://www.clojure.org/) and [Leiningen](https://leiningen.org).
 
 ## Example Usage
 

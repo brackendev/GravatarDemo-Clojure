@@ -1,4 +1,4 @@
-_My Gravatar demo projects are for users to get acquainted with languages and platforms with something more than a "Hello World" example. Versions are available for [Clojure](https://github.com/brackendev/GravatarDemo-Clojure), [F#](https://github.com/brackendev/GravatarDemo-FSharp), [Newspeak](https://github.com/brackendev/GravatarDemo-Newspeak), [Pharo](https://github.com/brackendev/GravatarDemo-Pharo), and [Squeak](https://github.com/brackendev/GravatarDemo-Squeak)._
+_My Gravatar demo projects are for users to get acquainted with languages and platforms with something more than a "Hello World" example. Versions are available for [Clojure](https://github.com/brackendev/GravatarDemo-Clojure), [F#](https://github.com/brackendev/GravatarDemo-FSharp), [Newspeak](https://github.com/brackendev/GravatarDemo-Newspeak), [Pharo](https://github.com/brackendev/GravatarDemo-Pharo), [Racket](https://github.com/brackendev/GravatarDemo-Racket), and [Squeak](https://github.com/brackendev/GravatarDemo-Squeak)._
 
 - - -
 
@@ -16,11 +16,7 @@ GravatarDemo-Clojure
 
 ## Example Usage
 
-In a shell (in the project directory) execute:
-
-```bash
-lein test
-```
+Execute in a shell (in the project directory):
 
 ```bash
 lein run image email@example.com
@@ -32,20 +28,28 @@ lein run profile email@example.com
 
 ***or***
 
-To use the REPL, in a shell (in the project directory) execute:
+To use the REPL, execute in a shell (in the project directory):
 
 ```bash
 lein repl
 ```
 
-Then:
+Then in the REPL, evaluate:
 
 ```clojure
-(profile-for-email "email@example.com")
+;; Retrieve the image for the email address
+(image-for-email "email@example.com")
 ```
 
 ```clojure
-(image-for-email "email@example.com")
+;; Retrieve the profile for the email address
+(profile-for-email "email@example.com")
+```
+
+To run the tests, execute in a shell:
+
+```bash
+lein test
 ```
 
 ## Author
@@ -60,6 +64,7 @@ GravatarDemo-Clojure is released under the MIT license. See the LICENSE file for
 
 ## Useful Links
 
+* [/r/Clojure](https://www.reddit.com/r/Clojure/) [Reddit]
 * [Clojure tutorial - boot, basic functions and how to do REST requests](https://joaoptrindade.com/clojure-tutorial-part-1-http-requests)
 * [ClojureVerse](https://clojureverse.org/)
 * [Rails Conf 2012 Keynote: Simplicity Matters by Rich Hickey](https://www.youtube.com/watch?v=rI8tNMsozo0)

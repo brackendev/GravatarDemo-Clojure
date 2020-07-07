@@ -1,20 +1,22 @@
 (ns gravatar.core
-  (:require [clojure.data.json :as json-strict]
-            [org.httpkit.client :as http]
-            [digest]
-            [clojure.string :as str]
-            [clojure.java.io :as io]
-            [clojure.pprint :as pp]))
+  (:require
+    [clojure.data.json :as json-strict]
+    [org.httpkit.client :as http]
+    [digest]
+    [clojure.string :as str]
+    [clojure.java.io :as io]
+    [clojure.pprint :as pp]))
 
 (defn image-url
   [email]
-  (str "http://www.gravatar.com/avatar/" (digest/md5 email) "?s=2048&r=x"))
+  (str "https://www.gravatar.com/avatar/" (digest/md5 email) "?s=2048&r=x"))
 
 (defn profile-url
   [email]
-  (str "http://www.gravatar.com/" (digest/md5 email) ".json"))
+  (str "https://www.gravatar.com/" (digest/md5 email) ".json"))
 
-(defn file-extension [string]
+(defn file-extension
+  [string]
   (cond (= "image/jpeg" string) ".jpg"
         (= "image/png" string) ".png"
         :else ""))
@@ -37,5 +39,6 @@
     (get entry 0)))
 
 (defn -main [& argv]
+  "Entry point specified in project.clj :main"
   (cond (= (first argv) "image") (image-for-email (second argv))
         (= (first argv) "profile") (pp/pprint (profile-for-email (second argv)))))

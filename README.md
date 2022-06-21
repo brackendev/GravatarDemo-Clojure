@@ -10,6 +10,10 @@ GravatarDemo-Clojure
 * [Clojure 1.10.1](https://www.clojure.org/) reference platform.
 * Tests included.
 
+## TODO
+
+- [ ] Support the latest Clojure release.
+
 ## Installation
 
 1. Download this project.
